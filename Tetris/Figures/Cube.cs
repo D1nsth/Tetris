@@ -10,7 +10,7 @@ namespace Tetris
 
     public class Cube : Figure
     {
-        public Cube(GameField gameField) : base()
+        public Cube(GameField gameField) : base(gameField)
         {
             xLocate = gameField.XSize / 2;
             yLocate = 0;
@@ -19,22 +19,22 @@ namespace Tetris
             gameField.field[1, xLocate] = 1;
             gameField.field[1, xLocate + 1] = 1;
         }
-        public override void FallDown(GameField gameField)
+        public override void FallDown()
         {
             if ((yLocate + 2 != gameField.YSize) &&
                 (gameField.field[yLocate + 2, xLocate] != 2) &&
                 (gameField.field[yLocate + 2, xLocate + 1] != 2))
             {
-                Move(gameField, 1);
+                Move(1);
                 yLocate += 1;
             }
             else
             {
                 fall = false;
-                Move(gameField, 2);
+                Move(2);
             }
         }
-        private void Move(GameField gameField, byte x)
+        private void Move(byte x)
         {
             if (x == 1)
             {
@@ -53,7 +53,7 @@ namespace Tetris
                 gameField.field[yLocate + 1, xLocate + 1] = x;
             }
         }
-        public override void JerkDown(GameField gameField)
+        public override void JerkDown()
         {
             fall = false;
             gameField.field[yLocate, xLocate] = 0;
@@ -61,14 +61,14 @@ namespace Tetris
             gameField.field[yLocate + 1, xLocate] = 0;
             gameField.field[yLocate + 1, xLocate + 1] = 0;
 
-            SearchY(gameField);
+            SearchY();
 
             gameField.field[yLocate - 2, xLocate] = 2;
             gameField.field[yLocate - 2, xLocate + 1] = 2;
             gameField.field[yLocate - 1, xLocate] = 2;
             gameField.field[yLocate - 1, xLocate + 1] = 2;
         }
-        private void SearchY(GameField gameField)
+        private void SearchY()
         {
             bool found = false;
             int i = yLocate;
@@ -85,7 +85,7 @@ namespace Tetris
             if (!found)
                 yLocate = gameField.YSize;
         }
-        public override void ShiftLeft(GameField gameField)
+        public override void ShiftLeft()
         {
             if ((xLocate != 0) &&
                     (gameField.field[yLocate, xLocate - 1] != 2) &&
@@ -98,7 +98,7 @@ namespace Tetris
                 xLocate -= 1;
             }
         }
-        public override void ShiftRight(GameField gameField)
+        public override void ShiftRight()
         {
             if ((xLocate + 1 != gameField.XSize - 1) &&
                     (gameField.field[yLocate, xLocate + 2] != 2) &&
@@ -111,7 +111,7 @@ namespace Tetris
                 xLocate += 1;
             }
         }
-        public override void Turn(GameField gameField) { }
+        public override void Turn() { }
 
         public override bool HasDrawingPlace()
         {

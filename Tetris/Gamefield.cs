@@ -62,53 +62,11 @@ namespace Tetris
             graphic.Clear(Color.RoyalBlue);//.White);
             graphic.DrawRectangle(mainPen, 0, 0, xSize * x, ySize * y);
         }
-        public void DrawField(Graphics graphic, SolidBrush FiguresBrush, SolidBrush FallenFiguresBrush, string nextFigure) //add
+        public void DrawField(Graphics graphic, SolidBrush FiguresBrush, SolidBrush FallenFiguresBrush, TypeFigures nextFigure) //add
         {
             graphic.Clear(Color.LightSteelBlue);//.White);
-            #region NextFigure
-            graphic.DrawRectangle(mainPen, 468, 86, 99, 99);
-            switch (nextFigure)
-            {
-                case "cube":
-                    graphic.FillRectangle(nextFigureBrush, 468, 119, 66, 66);
-                    graphic.DrawRectangle(mainPen, 501, 152, 33, 33);
-                    graphic.DrawRectangle(mainPen, 468, 152, 33, 33);
-                    graphic.DrawRectangle(mainPen, 501, 119, 33, 33);
-                    graphic.DrawRectangle(mainPen, 468, 119, 33, 33);
-                    break;
-                case "line":
-                    graphic.FillRectangle(nextFigureBrush, 468, 136, 99, 25);
-                    graphic.DrawRectangle(mainPen, 468, 136, 25, 25);
-                    graphic.DrawRectangle(mainPen, 493, 136, 25, 25);
-                    graphic.DrawRectangle(mainPen, 518, 136, 25, 25);
-                    graphic.DrawRectangle(mainPen, 543, 136, 24, 25);
-                    break;
-                case "ltype":
-                    graphic.FillRectangle(nextFigureBrush, 468, 152, 99, 33);
-                    graphic.FillRectangle(nextFigureBrush, 534, 119, 33, 33);
-                    graphic.DrawRectangle(mainPen, 468, 152, 33, 33);
-                    graphic.DrawRectangle(mainPen, 501, 152, 33, 33);
-                    graphic.DrawRectangle(mainPen, 534, 152, 33, 33);
-                    graphic.DrawRectangle(mainPen, 534, 119, 33, 33);
-                    break;
-                case "jtype":
-                    graphic.FillRectangle(nextFigureBrush, 468, 119, 33, 33);
-                    graphic.FillRectangle(nextFigureBrush, 468, 152, 99, 33);
-                    graphic.DrawRectangle(mainPen, 468, 119, 33, 33);
-                    graphic.DrawRectangle(mainPen, 468, 152, 33, 33);
-                    graphic.DrawRectangle(mainPen, 501, 152, 33, 33);
-                    graphic.DrawRectangle(mainPen, 534, 152, 33, 33);
-                    break;
-                case "ttype":
-                    graphic.FillRectangle(nextFigureBrush, 501, 119, 33, 33);
-                    graphic.FillRectangle(nextFigureBrush, 468, 152, 99, 33);
-                    graphic.DrawRectangle(mainPen, 501, 119, 33, 33);
-                    graphic.DrawRectangle(mainPen, 468, 152, 33, 33);
-                    graphic.DrawRectangle(mainPen, 501, 152, 33, 33);
-                    graphic.DrawRectangle(mainPen, 534, 152, 33, 33);
-                    break;
-            }
-            #endregion
+
+            DrawNextFigure(graphic, nextFigure);
 
             graphic.DrawRectangle(mainPen, 0, 0, x * xSize, y * ySize);
             for (short i = 0; i < ySize; i++)
@@ -125,6 +83,51 @@ namespace Tetris
                         graphic.DrawRectangle(mainPen, x * j, y * i, x, y);
                     }
                 }
+        }
+        private void DrawNextFigure(Graphics graphic, TypeFigures nextFigure)
+        {
+            graphic.DrawRectangle(mainPen, 468, 86, 99, 99);
+            switch (nextFigure)
+            {
+                case TypeFigures.CUBE:
+                    graphic.FillRectangle(nextFigureBrush, 468, 119, 66, 66);
+                    graphic.DrawRectangle(mainPen, 501, 152, 33, 33);
+                    graphic.DrawRectangle(mainPen, 468, 152, 33, 33);
+                    graphic.DrawRectangle(mainPen, 501, 119, 33, 33);
+                    graphic.DrawRectangle(mainPen, 468, 119, 33, 33);
+                    break;
+                case TypeFigures.LINE:
+                    graphic.FillRectangle(nextFigureBrush, 468, 136, 99, 25);
+                    graphic.DrawRectangle(mainPen, 468, 136, 25, 25);
+                    graphic.DrawRectangle(mainPen, 493, 136, 25, 25);
+                    graphic.DrawRectangle(mainPen, 518, 136, 25, 25);
+                    graphic.DrawRectangle(mainPen, 543, 136, 24, 25);
+                    break;
+                case TypeFigures.LTYPE:
+                    graphic.FillRectangle(nextFigureBrush, 468, 152, 99, 33);
+                    graphic.FillRectangle(nextFigureBrush, 534, 119, 33, 33);
+                    graphic.DrawRectangle(mainPen, 468, 152, 33, 33);
+                    graphic.DrawRectangle(mainPen, 501, 152, 33, 33);
+                    graphic.DrawRectangle(mainPen, 534, 152, 33, 33);
+                    graphic.DrawRectangle(mainPen, 534, 119, 33, 33);
+                    break;
+                case TypeFigures.JTYPE:
+                    graphic.FillRectangle(nextFigureBrush, 468, 119, 33, 33);
+                    graphic.FillRectangle(nextFigureBrush, 468, 152, 99, 33);
+                    graphic.DrawRectangle(mainPen, 468, 119, 33, 33);
+                    graphic.DrawRectangle(mainPen, 468, 152, 33, 33);
+                    graphic.DrawRectangle(mainPen, 501, 152, 33, 33);
+                    graphic.DrawRectangle(mainPen, 534, 152, 33, 33);
+                    break;
+                case TypeFigures.TTYPE:
+                    graphic.FillRectangle(nextFigureBrush, 501, 119, 33, 33);
+                    graphic.FillRectangle(nextFigureBrush, 468, 152, 99, 33);
+                    graphic.DrawRectangle(mainPen, 501, 119, 33, 33);
+                    graphic.DrawRectangle(mainPen, 468, 152, 33, 33);
+                    graphic.DrawRectangle(mainPen, 501, 152, 33, 33);
+                    graphic.DrawRectangle(mainPen, 534, 152, 33, 33);
+                    break;
+            }
         }
         public bool CheckFillingTheLine(int Y)
         {

@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Tetris.GameField" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AECQgAAAAAAAAAAQAAAAAAAAABgAAAIMAABgBAEAAAA=</HashCode>
+      <FileName>GameField.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tetris.GamePlay" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABgAQAACAAABgQAAAIAAgAAAAAABwBIBQAABAAAQA=</HashCode>
+      <FileName>Single\Gameplay.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tetris.Figure" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAQEACAAAAAAAAACCBwAAAAMAQABCARxCAgAAAA=</HashCode>
+      <FileName>Figures\Figures.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Tetris.Cube" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAKAAAAAAAAACAAAAEAAAAAAAAAARCAAAAAA=</HashCode>
+      <FileName>Figures\Cube.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tetris.Figures.Jtype" Collapsed="true">
+    <Position X="8.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAACAAQDgIBwACAAAAAAAAAAAAAAARCAAAAAA=</HashCode>
+      <FileName>Figures\Jtype.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tetris.Figures.Line" Collapsed="true">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAACAAABgAAwACAAAAAAAAAAAAAAARCAAAAAA=</HashCode>
+      <FileName>Figures\Line.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tetris.Figures.Ltype" Collapsed="true">
+    <Position X="8.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAACAAQDgIBwASAAAAAAAAAAAAAAARCAAAAAA=</HashCode>
+      <FileName>Figures\Ltype.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tetris.Figures.Ttype" Collapsed="true">
+    <Position X="8.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAACAAQDgIBwACAAAAAAAAAAAAAAARCAAAAAA=</HashCode>
+      <FileName>Figures\Ttype.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Tetris.AI" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACCCAAAAAAAAAAAQAAAAAAAAAAkAAAAEAABgAJAAIAA=</HashCode>
+      <FileName>AI\AI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Tetris.TypeFigures" Collapsed="true">
+    <Position X="6.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAAAIAAACAEAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>Single\Gameplay.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

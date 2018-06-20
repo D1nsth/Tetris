@@ -8,7 +8,7 @@ using Tetris.Figures;
 
 namespace Tetris
 {
-    public abstract class Figure: IPlaceable
+    public abstract class Figure : IPlaceable, IBehavior
     {
         protected const short x = 20;
         protected const short y = 20;
@@ -19,14 +19,43 @@ namespace Tetris
         protected Random random;
         public SolidBrush mainBrush;
         public SolidBrush fallenBrush;
-        public Figure()
+
+        protected GameField gameField;
+
+        public Figure(GameField gameField)
         {
             random = new Random();
             fallenBrush = new SolidBrush(Color.LightGreen);//.BurlyWood);
             mainBrush = new SolidBrush(Color.FromArgb(random.Next(256), random.Next(256), random.Next(256)));
             status = 1;
             fall = true;
+            this.gameField = gameField;
         }
+
+        public static Figure GetFigure(GameField gameField, TypeFigures figureName)
+        {
+            Figure tempFigure = null; //= new Cube(gameField);
+            switch (figureName)
+            {
+                case TypeFigures.CUBE:
+                    tempFigure = new Cube(gameField);
+                    break;
+                case TypeFigures.LINE:
+                    tempFigure = new Line(gameField);
+                    break;
+                case TypeFigures.LTYPE:
+                    tempFigure = new Ltype(gameField);
+                    break;
+                case TypeFigures.JTYPE:
+                    tempFigure = new Jtype(gameField);
+                    break;
+                case TypeFigures.TTYPE:
+                    tempFigure = new Ttype(gameField);
+                    break;
+            }
+            return tempFigure;
+        }
+        
         public bool Fall
         {
             get { return fall; }
@@ -43,11 +72,11 @@ namespace Tetris
         {
             get { return status; }
         }
-        public abstract void FallDown(GameField gameField);
-        public abstract void JerkDown(GameField gameField);
-        public abstract void ShiftLeft(GameField gameField);
-        public abstract void ShiftRight(GameField gameField);
-        public abstract void Turn(GameField gameField);
+        public abstract void FallDown();
+        public abstract void JerkDown();
+        public abstract void ShiftLeft();
+        public abstract void ShiftRight();
+        public abstract void Turn();
         public abstract bool HasDrawingPlace();
     }
 }

@@ -61,28 +61,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AI.cs" />
-    <Compile Include="AIGameForm.cs">
+    <Compile Include="AI\AI.cs" />
+    <Compile Include="AI\AIGameForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AIGameForm.Designer.cs">
+    <Compile Include="AI\AIGameForm.Designer.cs">
       <DependentUpon>AIGameForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Figures\Cube.cs" />
     <Compile Include="Figures\Figures.cs" />
+    <Compile Include="Figures\IBehavior.cs" />
     <Compile Include="Figures\IPlaceable.cs" />
-    <Compile Include="Figures\JType.cs" />
+    <Compile Include="Figures\Jtype.cs" />
     <Compile Include="Figures\Line.cs" />
     <Compile Include="Figures\Ltype.cs" />
     <Compile Include="Figures\Ttype.cs" />
-    <Compile Include="Gamefield.cs" />
-    <Compile Include="SingleGameForm.cs">
+    <Compile Include="GameField.cs" />
+    <Compile Include="Single\SingleGameForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SingleGameForm.Designer.cs">
+    <Compile Include="Single\SingleGameForm.Designer.cs">
       <DependentUpon>SingleGameForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Gameplay.cs" />
+    <Compile Include="Single\Gameplay.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,10 +92,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AIGameForm.resx">
+    <EmbeddedResource Include="AI\AIGameForm.resx">
       <DependentUpon>AIGameForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SingleGameForm.resx">
+    <EmbeddedResource Include="Single\SingleGameForm.resx">
       <DependentUpon>SingleGameForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
@@ -109,7 +110,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

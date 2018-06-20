@@ -8,7 +8,7 @@ namespace Tetris.Figures
 {
     public class Line : Figure
     {
-        public Line(GameField gameField) : base()
+        public Line(GameField gameField) : base(gameField)
         {
             xLocate = gameField.XSize / 2;
             yLocate = 0;
@@ -17,7 +17,7 @@ namespace Tetris.Figures
             gameField.field[0, xLocate + 1] = 1;
             gameField.field[0, xLocate + 2] = 1;
         }
-        public override void FallDown(GameField gameField)
+        public override void FallDown()
         {
             switch (status)
             {
@@ -28,31 +28,31 @@ namespace Tetris.Figures
                         (gameField.field[yLocate + 1, xLocate + 1] != 2) &&
                         (gameField.field[yLocate + 1, xLocate + 2] != 2))
                     {
-                        Move_Status_1(gameField, 1);
+                        Move_Status_1(1);
                         yLocate += 1;
                     }
                     else
                     {
                         fall = false;
-                        Move_Status_1(gameField, 2);
+                        Move_Status_1(2);
                     }
                     break;
                 case 2:
                     if ((yLocate + 3 != gameField.YSize) &&
                         (gameField.field[yLocate + 3, xLocate] != 2))
                     {
-                        Move_Status_2(gameField, 1);
+                        Move_Status_2(1);
                         yLocate += 1;
                     }
                     else
                     {
                         fall = false;
-                        Move_Status_2(gameField, 2);
+                        Move_Status_2(2);
                     }
                     break;
             }
         }
-        private void Move_Status_1(GameField gameField, byte x)
+        private void Move_Status_1(byte x)
         {
             if (x == 1)
             {
@@ -74,7 +74,7 @@ namespace Tetris.Figures
                 gameField.field[yLocate, xLocate + 2] = x;
             }
         }
-        private void Move_Status_2(GameField gameField, byte x)
+        private void Move_Status_2(byte x)
         {
             if (x == 1)
             {
@@ -89,7 +89,7 @@ namespace Tetris.Figures
                 gameField.field[yLocate + 2, xLocate] = 2;
             }
         }
-        public override void JerkDown(GameField gameField)
+        public override void JerkDown()
         {
             fall = false;
             switch (status)
@@ -100,7 +100,7 @@ namespace Tetris.Figures
                     gameField.field[yLocate, xLocate + 1] = 0;
                     gameField.field[yLocate, xLocate + 2] = 0;
 
-                    SearchY_Status_1(gameField);
+                    SearchY_Status_1();
 
                     gameField.field[yLocate - 1, xLocate - 1] = 2;
                     gameField.field[yLocate - 1, xLocate] = 2;
@@ -113,7 +113,7 @@ namespace Tetris.Figures
                     gameField.field[yLocate + 1, xLocate] = 0;
                     gameField.field[yLocate + 2, xLocate] = 0;
 
-                    SearchY_Status_2(gameField);
+                    SearchY_Status_2();
 
                     gameField.field[yLocate - 1, xLocate] = 2;
                     gameField.field[yLocate - 2, xLocate] = 2;
@@ -122,7 +122,7 @@ namespace Tetris.Figures
                     break;
             }
         }
-        private void SearchY_Status_1(GameField gameField)
+        private void SearchY_Status_1()
         {
             bool found = false;
             int i = yLocate;
@@ -141,7 +141,7 @@ namespace Tetris.Figures
             if (!found)
                 yLocate = gameField.YSize;
         }
-        private void SearchY_Status_2(GameField gameField)
+        private void SearchY_Status_2()
         {
             bool found = false;
             int i = yLocate;
@@ -157,7 +157,7 @@ namespace Tetris.Figures
             if (!found)
                 yLocate = gameField.YSize;
         }
-        public override void ShiftLeft(GameField gameField)
+        public override void ShiftLeft()
         {
             switch (status)
             {
@@ -191,7 +191,7 @@ namespace Tetris.Figures
                     break;
             }
         }
-        public override void ShiftRight(GameField gameField)
+        public override void ShiftRight()
         {
             switch (status)
             {
@@ -225,7 +225,7 @@ namespace Tetris.Figures
                     break;
             }
         }
-        public override void Turn(GameField gameField)
+        public override void Turn()
         {
             switch (status)
             {
