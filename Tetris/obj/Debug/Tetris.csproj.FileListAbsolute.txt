@@ -20,3 +20,6 @@ C:\Users\Dewi\Desktop\Git\Tetris\Tetris\obj\Debug\Tetris.SimpleGameForm.resource
 C:\Users\Dewi\Desktop\Git\Tetris\Tetris\obj\Debug\Tetris.MainForm.resources
 C:\Users\Dewi\Desktop\Git\Tetris\Tetris\obj\Debug\Tetris.Properties.Resources.resources
 C:\Users\Dewi\Desktop\Git\Tetris\Tetris\obj\Debug\Tetris.csproj.GenerateResource.Cache
+C:\Users\Dewi\Desktop\123\Tetris\Tetris\bin\Debug\Tetris.exe.config
+C:\Users\Dewi\Desktop\123\Tetris\Tetris\obj\Debug\Tetris.exe
+C:\Users\Dewi\Desktop\123\Tetris\Tetris\obj\Debug\Tetris.pdb
