@@ -60,6 +60,7 @@ namespace Tetris
                     _gameField.ShiftDownField(y);
                     score += gameField.XSize;
                 }
+                else GameOver();
             }
 
             nowFigure = nextFigure;
